@@ -1,0 +1,105 @@
+{
+  "name": "MetricForge — Competitor Scraper",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "weeks", "weeksInterval": 1 }]
+        }
+      },
+      "id": "node-schedule",
+      "name": "Weekly Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  { name: 'Barrel', url: 'https://barrel.nyc', focus: 'Digital Agency — Strategy, Design, Development' },\n  { name: 'Instrument', url: 'https://www.instrument.com', focus: 'Digital Product Studio — Branding, UX, Engineering' },\n  { name: 'Locomotive', url: 'https://locomotive.ca', focus: 'Award-Winning Web Design + Scroll Animations' },\n  { name: 'Rally', url: 'https://www.rally.co', focus: 'Interactive Design + Optimization Agency' },\n  { name: 'Webflow', url: 'https://webflow.com', focus: 'Web Design Platform — No-Code + Data Storytelling' }\n].map(c => ({ json: c }));"
+      },
+      "id": "node-competitors",
+      "name": "Competitor List",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {
+          "timeout": 15000,
+          "response": { "response": { "fullResponse": true } }
+        }
+      },
+      "id": "node-fetch",
+      "name": "Fetch Competitor Pages",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [680, 300],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst results = items.map(item => {\n  const html = item.json.body || item.json.data || '';\n  const name = item.json.url || 'unknown';\n\n  // Extract title\n  const titleMatch = html.match(/<title[^>]*>([^<]+)<\\/title>/i);\n  const title = titleMatch ? titleMatch[1].trim() : '';\n\n  // Extract meta description\n  const descMatch = html.match(/<meta[^>]+name=[\"']description[\"'][^>]+content=[\"']([^\"']+)[\"']/i);\n  const description = descMatch ? descMatch[1].trim() : '';\n\n  // Extract h1 tags\n  const h1Matches = [...html.matchAll(/<h1[^>]*>([^<]+)<\\/h1>/gi)];\n  const h1s = h1Matches.map(m => m[1].trim()).filter(Boolean).slice(0, 3);\n\n  // Extract h2 tags (section headings)\n  const h2Matches = [...html.matchAll(/<h2[^>]*>([^<]+)<\\/h2>/gi)];\n  const h2s = h2Matches.map(m => m[1].trim()).filter(Boolean).slice(0, 6);\n\n  // Extract CTA button text\n  const ctaMatches = [...html.matchAll(/<(?:a|button)[^>]*class=[\"'][^\"']*(?:btn|cta|button)[^\"']*[\"'][^>]*>([^<]+)/gi)];\n  const ctas = [...new Set(ctaMatches.map(m => m[1].trim()).filter(s => s.length > 1 && s.length < 60))].slice(0, 5);\n\n  // Extract nav links\n  const navMatches = [...html.matchAll(/<(?:nav|header)[^>]*>([\\s\\S]*?)<\\/(?:nav|header)>/gi)];\n  const navText = navMatches.map(m => m[1].replace(/<[^>]+>/g, ' ').trim()).join(' ');\n  const navLinks = [...new Set(navText.split(/\\s+/).filter(w => w.length > 3 && w.length < 20))].slice(0, 8);\n\n  // Count social proof signals\n  const testimonialCount = (html.match(/testimonial|review|client|quote/gi) || []).length;\n  const caseStudyCount = (html.match(/case.?study|portfolio|work|project/gi) || []).length;\n  const statsCount = (html.match(/\\d+[%+×x]|\\$[\\d,]+|[\\d,]+\\+/g) || []).length;\n\n  // Detect tech signals\n  const hasWebflow = /webflow/i.test(html);\n  const hasNextJS = /next\\.js|__next/i.test(html);\n  const hasReact = /react/i.test(html);\n  const hasGTM = /googletagmanager/i.test(html);\n  const hasHotjar = /hotjar/i.test(html);\n  const hasSchema = /application\\/ld\\+json/i.test(html);\n\n  return { json: {\n    name,\n    title,\n    description,\n    h1s,\n    sections: h2s,\n    ctas,\n    navLinks,\n    socialProof: { testimonialCount, caseStudyCount, statsCount },\n    techStack: { hasWebflow, hasNextJS, hasReact, hasGTM, hasHotjar, hasSchema },\n    htmlLength: html.length,\n    scrapedAt: new Date().toISOString()\n  }};\n});\n\nreturn results;"
+      },
+      "id": "node-parse",
+      "name": "Parse & Extract",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst competitors = items.map(i => i.json);\n\n// Aggregate best practices\nconst allCTAs = competitors.flatMap(c => c.ctas || []);\nconst ctaFreq = {};\nallCTAs.forEach(cta => { ctaFreq[cta] = (ctaFreq[cta] || 0) + 1; });\nconst topCTAs = Object.entries(ctaFreq)\n  .sort((a, b) => b[1] - a[1])\n  .slice(0, 10)\n  .map(([text, count]) => ({ text, usedBy: count }));\n\nconst allSections = competitors.flatMap(c => c.sections || []);\nconst sectionFreq = {};\nallSections.forEach(s => { sectionFreq[s] = (sectionFreq[s] || 0) + 1; });\nconst commonSections = Object.entries(sectionFreq)\n  .filter(([, count]) => count >= 2)\n  .sort((a, b) => b[1] - a[1])\n  .map(([name, count]) => ({ name, usedBy: count }));\n\nconst schemaAdopters = competitors.filter(c => c.techStack?.hasSchema).length;\nconst hotjarAdopters = competitors.filter(c => c.techStack?.hasHotjar).length;\nconst gtmAdopters = competitors.filter(c => c.techStack?.hasGTM).length;\n\nconst report = {\n  generatedAt: new Date().toISOString(),\n  competitors,\n  bestPractices: {\n    topCTAs,\n    commonSections,\n    toolAdoption: {\n      schemaMarkup: `${schemaAdopters}/${competitors.length} use schema markup`,\n      hotjar: `${hotjarAdopters}/${competitors.length} use Hotjar`,\n      googleTagManager: `${gtmAdopters}/${competitors.length} use GTM`\n    },\n    recommendations: [\n      schemaAdopters >= 3 ? '✅ Schema markup: used by majority — MUST implement' : '⚠️ Schema markup: low adoption — competitive advantage if implemented',\n      hotjarAdopters >= 3 ? '✅ Behavioral analytics (Hotjar/heatmaps): industry standard' : 'Consider adding behavioral analytics for UX insights',\n      'Track H1 messaging angles used by top 3 performers',\n      'Monitor CTA copy changes quarterly — top performers A/B test continuously',\n      `Most common sections across competitors: ${commonSections.slice(0,3).map(s=>s.name).join(', ')}`\n    ]\n  }\n};\n\nreturn [{ json: report }];"
+      },
+      "id": "node-analyze",
+      "name": "Analyze & Rank",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "/home/f/Documents/Web site/semrush-aio-clone/.tmp/competitor-report.json",
+        "dataPropertyName": "data",
+        "options": { "encoding": "utf8" }
+      },
+      "id": "node-save",
+      "name": "Save Report",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [1340, 220],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const report = $input.first().json;\nconst c = report.competitors || [];\nconst bp = report.bestPractices || {};\n\nconsole.log('\\n📊 MetricForge Competitor Analysis Report');\nconsole.log('=========================================');\nconsole.log('Generated: ' + report.generatedAt);\nconsole.log('Competitors analyzed: ' + c.length);\nconsole.log('');\n\nc.forEach(comp => {\n  console.log('🏢 ' + comp.name);\n  console.log('   Title: ' + (comp.title || 'N/A'));\n  console.log('   Description: ' + (comp.description || 'N/A').slice(0, 100));\n  console.log('   Top CTAs: ' + (comp.ctas || []).slice(0,3).join(' | '));\n  console.log('   Schema: ' + (comp.techStack?.hasSchema ? '✅' : '❌') + '  GTM: ' + (comp.techStack?.hasGTM ? '✅' : '❌') + '  Hotjar: ' + (comp.techStack?.hasHotjar ? '✅' : '❌'));\n  console.log('');\n});\n\nconsole.log('🎯 Top CTA Patterns:');\n(bp.topCTAs || []).forEach(cta => console.log('   \"' + cta.text + '\" — used by ' + cta.usedBy + ' competitor(s)'));\n\nconsole.log('');\nconsole.log('📋 Recommendations:');\n(bp.recommendations || []).forEach(r => console.log('   ' + r));\n\nconsole.log('\\n✅ Full report saved to .tmp/competitor-report.json');\n\nreturn $input.all();"
+      },
+      "id": "node-log",
+      "name": "Log Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 380]
+    }
+  ],
+  "connections": {
+    "Weekly Trigger": { "main": [[{ "node": "Competitor List", "type": "main", "index": 0 }]] },
+    "Competitor List": { "main": [[{ "node": "Fetch Competitor Pages", "type": "main", "index": 0 }]] },
+    "Fetch Competitor Pages": { "main": [[{ "node": "Parse & Extract", "type": "main", "index": 0 }]] },
+    "Parse & Extract": { "main": [[{ "node": "Analyze & Rank", "type": "main", "index": 0 }]] },
+    "Analyze & Rank": {
+      "main": [
+        [{ "node": "Save Report", "type": "main", "index": 0 }],
+        [{ "node": "Log Summary", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "staticData": null,
+  "tags": [{ "name": "competitor-research" }],
+  "meta": {
+    "description": "Scrapes 5 web design / digital agency competitors weekly. Extracts CTAs, sections, tech stack, social proof signals. Outputs ranked best-practices report.",
+    "instanceId": "metricforge-competitor-scraper-v1"
+  }
+}

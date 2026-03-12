@@ -1,0 +1,14 @@
+{
+  "name": "aio-research-clone",
+  "version": "1.0.0",
+  "description": "AIO Research — SEMrush AI Overviews Study clone with AI-generated images",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "generate": "node generate-images.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

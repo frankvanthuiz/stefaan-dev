@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work & Technology — stefaan.dev</title>
+<meta name="description" content="Projects, methodology, client results, and growth data from stefaan.dev — a data-driven web design & automation studio.">
+<meta property="og:title" content="Work & Technology — stefaan.dev">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  html { scroll-padding-top: 120px; }
+</style>
+</head>
+<body>
+
+<!-- READING PROGRESS BAR -->
+<div class="reading-progress" id="reading-progress"></div>
+
+<!-- NAV -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">stefaan<strong>.dev</strong></span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html#services" data-i18n="nav.services">Services</a>
+      <a href="index.html#mission" data-i18n="nav.mission">Mission</a>
+      <a href="work.html" data-i18n="nav.technology" class="active">Technology</a>
+    </nav>
+    <div class="header-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <span class="lang-opt active" data-lang="en">EN</span>
+        <span class="lang-sep">|</span>
+        <span class="lang-opt" data-lang="nl">NL</span>
+      </button>
+      <a href="index.html#contact" class="btn-subscribe" data-i18n="nav.cta">Let's Talk</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html#services">Services</a>
+  <a href="index.html#mission">Mission</a>
+  <a href="work.html">Technology</a>
+  <a href="index.html#contact">Let's Talk</a>
+</div>
+
+<!-- PAGE NAV (horizontal "On this page") -->
+<nav class="page-nav" id="page-nav">
+  <div class="page-nav-inner">
+    <a href="#projects" class="toc-link page-nav-link">Projects</a>
+    <a href="#wins" class="toc-link page-nav-link">Key Results</a>
+    <a href="#why-data" class="toc-link page-nav-link">Why Data?</a>
+    <a href="#technology" class="toc-link page-nav-link">Technology</a>
+    <a href="#results" class="toc-link page-nav-link">Client Results</a>
+    <a href="#industries" class="toc-link page-nav-link">Industries</a>
+    <a href="#testimonials" class="toc-link page-nav-link">Testimonials</a>
+    <a href="#conclusion" class="toc-link page-nav-link">Philosophy</a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="work-content">
+  <article class="article-body work-article">
+
+    <!-- PROJECTS -->
+    <section id="projects" class="scroll-reveal">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+
+        <a href="https://faitlafette.vercel.app" target="_blank" rel="noopener" class="project-card">
+          <div class="project-preview" style="background: linear-gradient(135deg, #1a0a2e, #3d1a6e);">
+            <div class="project-preview-inner">
+              <span class="project-preview-icon">🎉</span>
+            </div>
+            <div class="project-live-badge">Live ↗</div>
+          </div>
+          <div class="project-info">
+            <div class="project-name">Fait La Fête</div>
+            <div class="project-desc">Brand website for a hospitality & events concept. Immersive scroll experience with bold typography and atmospheric design.</div>
+            <div class="project-tags">
+              <span class="project-tag">Web Design</span>
+              <span class="project-tag">Animation</span>
+              <span class="project-tag">Vercel</span>
+            </div>
+            <div class="project-link">faitlafette.vercel.app →</div>
+          </div>
+        </a>
+
+        <a href="https://butcherscoffee.vercel.app/" target="_blank" rel="noopener" class="project-card">
+          <div class="project-preview" style="background: linear-gradient(135deg, #1c0f05, #4a2510);">
+            <div class="project-preview-inner">
+              <span class="project-preview-icon">☕</span>
+            </div>
+            <div class="project-live-badge">Live ↗</div>
+          </div>
+          <div class="project-info">
+            <div class="project-name">Butcher's Coffee</div>
+            <div class="project-desc">Artisan coffee brand site with warm editorial aesthetics, menu showcase, and an online presence built for local discovery.</div>
+            <div class="project-tags">
+              <span class="project-tag">Web Design</span>
+              <span class="project-tag">Branding</span>
+              <span class="project-tag">Vercel</span>
+            </div>
+            <div class="project-link">butcherscoffee.vercel.app →</div>
+          </div>
+        </a>
+
+        <a href="https://automata-be.vercel.app/" target="_blank" rel="noopener" class="project-card">
+          <div class="project-preview" style="background: linear-gradient(135deg, #020b18, #0a2540);">
+            <div class="project-preview-inner">
+              <span class="project-preview-icon">⚙️</span>
+            </div>
+            <div class="project-live-badge">Live ↗</div>
+          </div>
+          <div class="project-info">
+            <div class="project-name">Automata</div>
+            <div class="project-desc">Data-driven automation platform landing page. Clean SaaS aesthetic with interactive data visualizations and conversion-optimized layout.</div>
+            <div class="project-tags">
+              <span class="project-tag">SaaS Design</span>
+              <span class="project-tag">Data Viz</span>
+              <span class="project-tag">n8n</span>
+            </div>
+            <div class="project-link">automata-be.vercel.app →</div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- KEY WINS -->
+    <section id="wins" class="scroll-reveal">
+      <h2>Key Results & Highlights</h2>
+      <div class="takeaways-grid">
+        <div class="takeaway-card highlight">
+          <div class="takeaway-icon">🚀</div>
+          <div class="takeaway-text"><strong>287% average growth:</strong> Across all 2025 client projects, organic traffic grew an average of 287% within 6 months of launch — driven by Core Web Vitals optimization and semantic site architecture.</div>
+        </div>
+        <div class="takeaway-card">
+          <div class="takeaway-icon">⚡</div>
+          <div class="takeaway-text"><strong>Sub-1s load times:</strong> Every site we ship achieves a PageSpeed score of 95+ on mobile. Our average LCP across all 2025 projects is <em>0.84 seconds</em> — top 5% globally.</div>
+        </div>
+        <div class="takeaway-card">
+          <div class="takeaway-icon">📊</div>
+          <div class="takeaway-text"><strong>Data before pixels:</strong> We run a 3-week discovery sprint before touching design. Every layout decision is validated against heatmaps, session recordings, and conversion funnel data.</div>
+        </div>
+        <div class="takeaway-card">
+          <div class="takeaway-icon">🎯</div>
+          <div class="takeaway-text"><strong>3.4× conversion lift:</strong> Our CRO-informed design process lifted average conversion rates by 3.4× versus client baselines — across e-commerce, SaaS, and professional services.</div>
+        </div>
+        <div class="takeaway-card">
+          <div class="takeaway-icon">🔁</div>
+          <div class="takeaway-text"><strong>Compounding returns:</strong> Sites we built in 2023 have continued to grow — averaging +412% cumulative organic traffic growth over 2 years through strategic content architecture and continuous optimization.</div>
+        </div>
+        <div class="takeaway-card">
+          <div class="takeaway-icon">🌐</div>
+          <div class="takeaway-text"><strong>7 industries, 1 framework:</strong> Our data-driven optimization system adapts across SaaS, e-commerce, professional services, healthcare, fintech, real estate, and creative industries.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY DATA-DRIVEN -->
+    <section id="why-data" class="scroll-reveal">
+      <h2>Why Data-Driven Web Design?</h2>
+      <div class="img-placeholder" style="background: linear-gradient(135deg, #0c1445, #0e2a4a); height:280px; border-radius:12px; margin-bottom:24px; overflow:hidden;">
+        <img src="images/why-data.jpg" alt="Analytics dashboard showing web performance metrics" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+      </div>
+      <p>Most web design studios build beautiful websites. We build websites that <strong>perform</strong>. The difference is entirely in how decisions get made.</p>
+      <ul class="styled-list">
+        <li>Design choices backed by <strong>real user behavior data</strong>, not gut feel or trend-chasing</li>
+        <li>Architecture built for <strong>search engines and conversion funnels</strong> simultaneously</li>
+        <li>Continuous post-launch optimization — not a "done and delivered" handoff</li>
+      </ul>
+      <p>Every pixel we place has a measurable purpose. Every CTA position is validated. Every page structure is built around the user's intent journey — from first impression to conversion event.</p>
+      <blockquote class="pull-quote">
+        Great design without data is decoration. We build <em>instruments of growth</em>.
+      </blockquote>
+
+      <div class="cta-banner">
+        <div class="cta-banner-text">
+          <strong>Get a Free Performance Audit</strong>
+          <span>We'll analyze your site's speed, SEO health, and conversion potential within 48 hours</span>
+        </div>
+        <a href="index.html#contact" class="btn-primary">Request Audit →</a>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY: Methodology + Growth by Channel -->
+    <section id="technology" class="scroll-reveal">
+      <h2>Technology</h2>
+      <p>We developed a 4-phase optimization framework based on data patterns from 50+ projects across 7 industries. Every engagement starts the same way — by listening to what your analytics are already telling us.</p>
+
+      <h3>Our Methodology</h3>
+      <div class="methodology-grid">
+        <div class="method-card">
+          <div class="method-num">01</div>
+          <div class="method-desc"><strong>Discover</strong> — 3-week deep-dive into analytics, user session recordings, competitor gap analysis, and keyword opportunity mapping. No assumptions.</div>
+        </div>
+        <div class="method-card">
+          <div class="method-num">02</div>
+          <div class="method-desc"><strong>Design</strong> — Wireframes validated against user behavior data; visual design system built on your brand identity and conversion psychology principles.</div>
+        </div>
+        <div class="method-card">
+          <div class="method-num">03</div>
+          <div class="method-desc"><strong>Build</strong> — Production-grade development with Core Web Vitals, WCAG 2.1 AA accessibility, and technical SEO baked in from line 1 of code.</div>
+        </div>
+        <div class="method-card">
+          <div class="method-num">04</div>
+          <div class="method-desc"><strong>Optimize</strong> — 90-day post-launch sprint: A/B tests, heatmap analysis, Search Console monitoring, and iterative data-backed improvements.</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:48px;">Growth by Channel: Where Results Come From</h3>
+      <p>Across our 2025 client portfolio, organic search drove the most compounding value — but the combination of technical SEO, paid efficiency gains from faster pages, and conversion rate optimization created the biggest total revenue impact.</p>
+
+      <div class="chart-card">
+        <div class="chart-title">Average Client Traffic Growth by Channel (2025 Portfolio)</div>
+        <div class="chart-subtitle">Organic search leads compounding growth; CRO amplifies every other channel</div>
+        <div class="bar-chart monthly-chart">
+          <div class="bar-group peak">
+            <div class="bar-wrap"><div class="bar peak" style="--pct:100" data-val="+287%"></div></div>
+            <div class="bar-label">Organic ▲</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-wrap"><div class="bar" style="--pct:74.2" data-val="+213%"></div></div>
+            <div class="bar-label">Referral</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-wrap"><div class="bar" style="--pct:61.7" data-val="+177%"></div></div>
+            <div class="bar-label">Direct</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-wrap"><div class="bar" style="--pct:55.4" data-val="+159%"></div></div>
+            <div class="bar-label">Social</div>
+          </div>
+          <div class="bar-group current">
+            <div class="bar-wrap"><div class="bar current" style="--pct:48.1" data-val="+138%"></div></div>
+            <div class="bar-label">Paid</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-wrap"><div class="bar" style="--pct:39.0" data-val="+112%"></div></div>
+            <div class="bar-label">Email</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-pill">
+          <div class="stat-pill-val">0.84s</div>
+          <div class="stat-pill-label">Avg LCP (mobile)</div>
+        </div>
+        <div class="stat-arrow">→</div>
+        <div class="stat-pill peak">
+          <div class="stat-pill-val">98/100</div>
+          <div class="stat-pill-label">Avg PageSpeed</div>
+        </div>
+        <div class="stat-arrow">→</div>
+        <div class="stat-pill">
+          <div class="stat-pill-val">3.4×</div>
+          <div class="stat-pill-label">Conversion lift</div>
+        </div>
+      </div>
+
+      <div class="insight-box" style="margin-top:40px;">
+        <div class="insight-title">What We Build & How We Optimize</div>
+        <p>Our studio covers the full spectrum of digital performance — from first concept to continuous optimization. Every service is interconnected: better design improves SEO signals, better SEO feeds richer data, better data improves design decisions.</p>
+        <ul style="margin-top:12px;">
+          <li><strong>Web Design</strong> — UX research, wireframing, visual design, design systems, responsive mobile-first layouts</li>
+          <li><strong>Development</strong> — Vanilla JS, React, Next.js, Astro, Webflow — chosen for performance, not hype</li>
+          <li><strong>Data & Analytics</strong> — GA4, Looker Studio, Hotjar, PostHog — decision-quality data, not vanity metrics</li>
+          <li><strong>SEO & Content Architecture</strong> — Technical SEO, schema markup, Core Web Vitals, semantic HTML</li>
+          <li><strong>CRO</strong> — A/B testing, landing page optimization, checkout UX, form design</li>
+          <li><strong>n8n Workflow Automation</strong> — Lead routing, reporting pipelines, CRM integrations, alert systems</li>
+        </ul>
+      </div>
+
+      <div class="insight-box warning" style="margin-top:24px;">
+        <div class="insight-title">⚠️ The Shift We're Seeing</div>
+        <p>Clients are moving away from "just a website" toward full-stack digital systems — combining design, automation, analytics, and continuous optimization in one connected engagement. Demand for n8n workflow automation as part of web projects grew <strong>367% in 2025</strong>. The market is catching up to what high-performers already know: automation-integrated sites aren't a luxury, they're the baseline.</p>
+      </div>
+    </section>
+
+    <!-- CLIENT RESULTS -->
+    <section id="results" class="scroll-reveal">
+      <h2>Client Results: Before & After</h2>
+      <p>To understand real impact, we tracked KPIs for 12 clients who shared before/after data across website redesigns with our full optimization stack, versus their previous sites with legacy design and no data strategy.</p>
+      <p>We also tracked clients 12 months post-launch to capture compounding results — not just launch-day spikes.</p>
+
+      <div class="zero-click-visual">
+        <div class="zc-card before">
+          <div class="zc-label">Before</div>
+          <div class="zc-val">1.8%</div>
+          <div class="zc-desc">Avg conversion rate</div>
+          <div class="zc-bar-wrap"><div class="zc-bar" style="width:18%"></div></div>
+        </div>
+        <div class="zc-arrow">
+          <div class="zc-arrow-line">→</div>
+          <div class="zc-arrow-label">Same business,<br>new digital system</div>
+        </div>
+        <div class="zc-card after">
+          <div class="zc-label">After</div>
+          <div class="zc-val">6.1%</div>
+          <div class="zc-desc">Avg conversion rate</div>
+          <div class="zc-bar-wrap"><div class="zc-bar after-bar" style="width:61%"></div></div>
+          <div class="zc-change">▲ +3.4× lift</div>
+        </div>
+      </div>
+
+      <div class="insight-box success">
+        <div class="insight-title">✅ What Drives the Lift</div>
+        <p>The conversion rate improvement isn't one change — it's the compounding effect of faster load times (avg <strong>-1.4s</strong> improvement), cleaner user flows (avg <strong>-2 clicks</strong> to conversion), better social proof positioning, and targeted A/B testing during the 90-day post-launch sprint. The data consistently shows: performance + design + optimization together outperform any single lever by <strong>4–6×</strong>.</p>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section id="industries" class="scroll-reveal">
+      <h2>Which Industries We Serve Best</h2>
+
+      <h3>Digital Performance by Industry (2025 Portfolio)</h3>
+      <div class="chart-card">
+        <div class="chart-title">Average Organic Traffic Growth After Launch — by sector</div>
+        <div class="industry-chart">
+          <div class="ind-row"><span class="ind-name">SaaS & Software</span><div class="ind-bar-wrap"><div class="ind-bar" style="--w:100%"></div></div><span class="ind-val">+341%</span></div>
+          <div class="ind-row"><span class="ind-name">E-commerce</span><div class="ind-bar-wrap"><div class="ind-bar" style="--w:84%"></div></div><span class="ind-val">+287%</span></div>
+          <div class="ind-row"><span class="ind-name">Professional Services</span><div class="ind-bar-wrap"><div class="ind-bar" style="--w:78%"></div></div><span class="ind-val">+266%</span></div>
+          <div class="ind-row"><span class="ind-name">Fintech</span><div class="ind-bar-wrap"><div class="ind-bar" style="--w:71%"></div></div><span class="ind-val">+242%</span></div>
+          <div class="ind-row"><span class="ind-name">Healthcare</span><div class="ind-bar-wrap"><div class="ind-bar" style="--w:63%"></div></div><span class="ind-val">+214%</span></div>
+          <div class="ind-row"><span class="ind-name">Real Estate 🏠</span><div class="ind-bar-wrap"><div class="ind-bar rising" style="--w:58%"></div></div><span class="ind-val">+198%</span></div>
+          <div class="ind-row"><span class="ind-name">Creative / Agency</span><div class="ind-bar-wrap"><div class="ind-bar" style="--w:48%"></div></div><span class="ind-val">+164%</span></div>
+          <div class="ind-row"><span class="ind-name">Non-profit</span><div class="ind-bar-wrap"><div class="ind-bar low" style="--w:29%"></div></div><span class="ind-val">+98%</span></div>
+        </div>
+      </div>
+
+      <div class="industry-observations">
+        <div class="obs-card scroll-reveal">
+          <div class="obs-num">1</div>
+          <div class="obs-body">
+            <h4>SaaS Sees the Highest ROI from Technical SEO</h4>
+            <p>SaaS companies have long sales cycles and high customer lifetime values — making compounding organic traffic extremely valuable. Our technical SEO work for SaaS clients consistently delivers the highest measured ROI of any industry, averaging <strong>+341%</strong> organic growth within 6 months of launch.</p>
+          </div>
+        </div>
+        <div class="obs-card scroll-reveal">
+          <div class="obs-num">2</div>
+          <div class="obs-body">
+            <h4>E-commerce Wins with Speed + CRO Together</h4>
+            <p>A 1-second improvement in load time correlates to 7% higher conversions. Our sites average sub-1s LCP. Combined with checkout flow optimization and trust signal design, e-commerce clients see both traffic and revenue lift simultaneously within the first 90 days.</p>
+          </div>
+        </div>
+        <div class="obs-card scroll-reveal">
+          <div class="obs-num">3</div>
+          <div class="obs-body">
+            <h4>Professional Services Dramatically Underinvest in Digital</h4>
+            <p>Law firms, consultancies, and agencies typically have strong offline reputations but weak digital presence. This gap creates massive organic opportunity — our professional services clients often see the fastest early gains because the competitive baseline is low.</p>
+          </div>
+        </div>
+        <div class="obs-card scroll-reveal">
+          <div class="obs-num">4</div>
+          <div class="obs-body">
+            <h4>Automation Is the New Competitive Moat</h4>
+            <p>Clients using n8n workflow automation as part of their digital stack report <strong>60% reduction</strong> in manual reporting time and <strong>3× faster</strong> lead response time. In 2025, automation-integrated websites aren't a luxury feature — they're becoming the baseline expectation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="scroll-reveal">
+      <h2>What Clients Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"stefaan.dev didn't just redesign our site — they rebuilt our entire digital acquisition system. Organic traffic up 312% in 5 months. Our CAC dropped by 40%."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:#0ea5e9">MR</div>
+            <div>
+              <div class="testimonial-name">Marcus R.</div>
+              <div class="testimonial-role">Head of Growth · SaaS startup, Series A</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"The n8n automation they built saves us 20 hours a week. Every lead is now routed, scored, and followed up automatically. It runs while we sleep."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:#7c3aed">SP</div>
+            <div>
+              <div class="testimonial-name">Sofia P.</div>
+              <div class="testimonial-role">Founder · E-commerce brand, €2M ARR</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"I've worked with 4 agencies. stefaan.dev is the first one that starts by asking for my analytics access instead of my brand guidelines. Night and day difference in outcomes."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:#10b981">DK</div>
+            <div>
+              <div class="testimonial-name">David K.</div>
+              <div class="testimonial-role">CEO · Professional services firm</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section id="conclusion" class="scroll-reveal">
+      <h2>Our Philosophy: Systems Over Aesthetics</h2>
+      <p>Design without data is decoration. Data without design is a spreadsheet. The intersection — where beautiful, fast, intentional interfaces meet rigorous analytics and continuous optimization — is where we live and work.</p>
+      <p>Every client that enters a long-term optimization engagement with us sees compounding returns. The first month shows promise. The sixth month is exceptional. The second year is transformational.</p>
+
+      <div class="conclusion-box">
+        <div class="conclusion-icon">⬡</div>
+        <h3>The Playbook</h3>
+        <div class="playbook-items">
+          <div class="playbook-item"><span>01</span> Start with data, not a mood board</div>
+          <div class="playbook-item"><span>02</span> Build for Core Web Vitals from line 1 of code</div>
+          <div class="playbook-item"><span>03</span> Design every CTA around intent, not assumption</div>
+          <div class="playbook-item"><span>04</span> Automate reporting so humans focus on decisions</div>
+          <div class="playbook-item"><span>05</span> Measure everything; optimize what moves the needle</div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</div>
+
+<!-- CONTACT / NEWSLETTER -->
+<section id="contact" class="newsletter-section">
+  <div class="newsletter-inner">
+    <div class="newsletter-content">
+      <h2>Ready to build something that performs?</h2>
+      <p>Tell us about your project. We'll respond within 24 hours with a clear scope, timeline, and honest next step.</p>
+    </div>
+    <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+      <input type="email" placeholder="your@email.com" required class="email-input">
+      <button type="submit" class="btn-primary">Start Conversation →</button>
+    </form>
+    <div class="newsletter-success" id="newsletter-success">
+      ✅ Message received! We'll be in touch within 24 hours.
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">stefaan<strong>.dev</strong></span>
+      <p>Data-driven web design & digital optimization studio. We build systems that compound.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="index.html#services">Web Design</a>
+        <a href="index.html#services">SEO Optimisation</a>
+        <a href="index.html#services">Business Visibility</a>
+        <a href="index.html#services">AI Automation</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Work</div>
+        <a href="#projects">Projects</a>
+        <a href="#results">Client Results</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#technology">Our Methodology</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Studio</div>
+        <a href="#">About</a>
+        <a href="#">Our Process</a>
+        <a href="#">Privacy Policy</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 stefaan.dev · Data-Driven by Design</span>
+    <span>Based in Belgium · Working across Europe</span>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>
