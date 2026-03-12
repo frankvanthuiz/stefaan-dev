@@ -205,6 +205,25 @@ document.addEventListener('click', function (e) {
   }
 });
 
+// ── Dark Mode Toggle ──────────────────────────
+var themeToggle = document.getElementById('theme-toggle');
+var currentTheme = localStorage.getItem('stefaan-theme') || 'light';
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('stefaan-theme', theme);
+  currentTheme = theme;
+  if (themeToggle) themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+
+applyTheme(currentTheme);
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', function () {
+    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  });
+}
+
 // ── Language Toggle (EN / NL) ─────────────────
 var TRANSLATIONS = [
   ['.main-nav a[href*="services"], .mobile-nav a[href*="services"]', 'Services', 'Diensten'],
