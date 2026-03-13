@@ -830,7 +830,8 @@ a:hover { text-decoration: underline; }
 
 /* =================== NEWSLETTER =================== */
 .newsletter-section {
-  background: linear-gradient(135deg, #27374D, #526D82);
+  background: #DDE6ED;
+  border-top: 1px solid #9DB2BF;
   padding: 72px 24px;
   margin-top: 0;
 }
@@ -843,10 +844,10 @@ a:hover { text-decoration: underline; }
   font-family: 'Playfair Display', serif;
   font-size: 32px;
   font-weight: 800;
-  color: #DDE6ED;
+  color: #27374D;
   margin-bottom: 12px;
 }
-.newsletter-content p { color: #9DB2BF; margin-bottom: 32px; }
+.newsletter-content p { color: #526D82; margin-bottom: 32px; }
 
 .newsletter-form {
   display: flex;
@@ -858,24 +859,25 @@ a:hover { text-decoration: underline; }
   flex: 1;
   padding: 12px 16px;
   border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.1);
-  color: #DDE6ED;
+  border: 1px solid #9DB2BF;
+  background: #fff;
+  color: #27374D;
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s;
 }
 .email-input::placeholder { color: #9DB2BF; }
-.email-input:focus { border-color: var(--accent); }
+.email-input:focus { border-color: #526D82; }
 
 .newsletter-success { display: none; margin-top: 16px; color: var(--green); font-weight: 600; }
 .newsletter-success.show { display: block; }
 
 /* =================== FOOTER =================== */
 .site-footer {
-  background: #27374D;
-  color: #DDE6ED;
+  background: #9DB2BF;
+  color: #27374D;
   padding: 56px 24px 24px;
+  border-top: 1px solid #526D82;
 }
 .footer-inner {
   max-width: var(--content-max);
@@ -887,9 +889,9 @@ a:hover { text-decoration: underline; }
 }
 @media(max-width: 768px) { .footer-inner { grid-template-columns: 1fr; } }
 
-.footer-brand .logo-icon { color: #526D82; }
-.footer-brand .logo-text { color: #DDE6ED; }
-.footer-brand p { font-size: 13px; color: #9DB2BF; margin-top: 12px; line-height: 1.5; }
+.footer-brand .logo-icon { color: #27374D; }
+.footer-brand .logo-text { color: #27374D; }
+.footer-brand p { font-size: 13px; color: #27374D; margin-top: 12px; line-height: 1.5; }
 
 .footer-links {
   display: grid;
@@ -899,9 +901,9 @@ a:hover { text-decoration: underline; }
 @media(max-width: 600px) { .footer-links { grid-template-columns: repeat(2,1fr); } }
 
 .footer-col { display: flex; flex-direction: column; gap: 8px; }
-.footer-col-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #9DB2BF; margin-bottom: 4px; }
-.footer-col a { font-size: 14px; color: #9DB2BF; text-decoration: none; transition: color 0.2s; }
-.footer-col a:hover { color: #DDE6ED; }
+.footer-col-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #27374D; margin-bottom: 4px; }
+.footer-col a { font-size: 14px; color: #27374D; text-decoration: none; transition: color 0.2s; }
+.footer-col a:hover { color: #526D82; }
 
 .footer-bottom {
   max-width: var(--content-max);
@@ -911,7 +913,7 @@ a:hover { text-decoration: underline; }
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-  color: #9DB2BF;
+  color: #27374D;
   flex-wrap: wrap;
   gap: 8px;
 }
@@ -1541,8 +1543,11 @@ body {
   border-color: #526D82;
 }
 [data-theme="dark"] .newsletter-section {
-  background: linear-gradient(135deg, #1a2535 0%, #27374D 100%);
+  background: #27374D;
+  border-top-color: #526D82;
 }
+[data-theme="dark"] .newsletter-content h2 { color: #DDE6ED; }
+[data-theme="dark"] .newsletter-content p { color: #9DB2BF; }
 [data-theme="dark"] .email-input {
   background: #1a2535;
   border-color: #526D82;
@@ -1550,9 +1555,17 @@ body {
 }
 [data-theme="dark"] .email-input::placeholder { color: #9DB2BF; }
 [data-theme="dark"] .site-footer {
-  background: #27374D;
+  background: #1a2535;
   border-top-color: #526D82;
+  color: #DDE6ED;
 }
+[data-theme="dark"] .footer-brand .logo-icon,
+[data-theme="dark"] .footer-brand .logo-text,
+[data-theme="dark"] .footer-brand p,
+[data-theme="dark"] .footer-col-title,
+[data-theme="dark"] .footer-col a { color: #9DB2BF; }
+[data-theme="dark"] .footer-col a:hover { color: #DDE6ED; }
+[data-theme="dark"] .footer-bottom { color: #9DB2BF; }
 [data-theme="dark"] .footer-bottom { border-top-color: #526D82; }
 [data-theme="dark"] .zero-click-visual .zc-card {
   background: #1a2535;
