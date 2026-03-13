@@ -228,7 +228,7 @@ if (themeToggle) {
 var TRANSLATIONS = [
   ['.main-nav a[href*="services"], .mobile-nav a[href*="services"]', 'Services', 'Diensten'],
   ['.main-nav a[href*="mission"], .mobile-nav a[href*="mission"]', 'Mission', 'Missie'],
-  ['.main-nav a[href*="work.html"], .mobile-nav a[href*="work.html"]', 'Technology', 'Technologie'],
+  ['.main-nav a[href*="work.html"], .mobile-nav a[href*="work.html"]', 'Projects', 'Projecten'],
   ['.btn-subscribe', "Let's Talk", 'Neem Contact'],
   ['.welcome-heading .heading-plain', 'Websites That Work. ', 'Websites die werken. '],
   ['.welcome-heading em', 'Visibility That Compounds.', 'Zichtbaarheid die aangroeit.'],
