@@ -10,9 +10,9 @@
   --border: #e2e8f0;
   --text: #1e293b;
   --muted: #64748b;
-  --accent: #0ea5e9;
-  --accent-dark: #0284c7;
-  --accent-light: #f0f9ff;
+  --accent: #F2613F;
+  --accent-dark: #9B3922;
+  --accent-light: #fdf0ec;
   --green: #10b981;
   --green-light: #ecfdf5;
   --amber: #f59e0b;
@@ -170,7 +170,7 @@ a:hover { text-decoration: underline; }
 
 /* =================== HERO =================== */
 .hero {
-  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0c1445 100%);
+  background: linear-gradient(135deg, #0C0C0C 0%, #481E14 50%, #0C0C0C 100%);
   color: white;
   padding: 72px 24px 0;
   display: grid;
@@ -231,7 +231,7 @@ a:hover { text-decoration: underline; }
   margin-bottom: 20px;
   color: white;
 }
-.hero-title em { font-style: italic; color: #a5b4fc; }
+.hero-title em { font-style: italic; color: #F2613F; }
 
 .hero-lead {
   font-size: 18px;
@@ -271,7 +271,7 @@ a:hover { text-decoration: underline; }
 @media(max-width: 600px) { .hero-stats-row { grid-template-columns: repeat(2,1fr); } }
 
 .hero-stat { text-align: center; }
-.hero-stat-num { font-size: 26px; font-weight: 800; color: #a5b4fc; font-family: 'Playfair Display', serif; }
+.hero-stat-num { font-size: 26px; font-weight: 800; color: #F2613F; font-family: 'Playfair Display', serif; }
 .hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
 
 /* HERO CHART */
@@ -458,7 +458,7 @@ a:hover { text-decoration: underline; }
   flex-wrap: wrap;
 }
 .cta-banner.dark {
-  background: linear-gradient(135deg, #1e293b, #1e1b4b);
+  background: linear-gradient(135deg, #481E14, #0C0C0C);
   border-color: rgba(99,102,241,0.3);
   color: white;
 }
@@ -538,7 +538,7 @@ a:hover { text-decoration: underline; }
 .bar {
   width: 100%;
   height: calc(var(--pct) * 1.4px);
-  background: linear-gradient(180deg, var(--accent) 0%, #818cf8 100%);
+  background: linear-gradient(180deg, var(--accent) 0%, #9B3922 100%);
   border-radius: 4px 4px 0 0;
   position: relative;
   cursor: pointer;
@@ -722,7 +722,7 @@ a:hover { text-decoration: underline; }
 .ind-bar {
   height: 100%;
   width: var(--w);
-  background: linear-gradient(90deg, var(--accent), #818cf8);
+  background: linear-gradient(90deg, var(--accent), #9B3922);
   border-radius: 6px;
   transition: width 1.2s ease;
 }
@@ -781,14 +781,14 @@ a:hover { text-decoration: underline; }
 
 /* CONCLUSION */
 .conclusion-box {
-  background: linear-gradient(135deg, #0f172a, #1e1b4b);
+  background: linear-gradient(135deg, #0C0C0C, #481E14);
   border-radius: 16px;
   padding: 32px;
   color: white;
   margin-top: 28px;
   text-align: center;
 }
-.conclusion-icon { font-size: 36px; color: #a5b4fc; margin-bottom: 12px; }
+.conclusion-icon { font-size: 36px; color: #F2613F; margin-bottom: 12px; }
 .conclusion-box h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 24px; color: white; }
 .playbook-items { display: flex; flex-direction: column; gap: 12px; text-align: left; max-width: 480px; margin: 0 auto; }
 .playbook-item {
@@ -801,7 +801,7 @@ a:hover { text-decoration: underline; }
   background: rgba(255,255,255,0.05);
   border-radius: 8px;
 }
-.playbook-item span { color: #a5b4fc; font-weight: 800; font-size: 12px; flex-shrink: 0; }
+.playbook-item span { color: #F2613F; font-weight: 800; font-size: 12px; flex-shrink: 0; }
 
 /* SOCIAL SHARE */
 .social-share {
@@ -830,7 +830,7 @@ a:hover { text-decoration: underline; }
 
 /* =================== NEWSLETTER =================== */
 .newsletter-section {
-  background: linear-gradient(135deg, #1e1b4b, #0f172a);
+  background: linear-gradient(135deg, #481E14, #0C0C0C);
   padding: 72px 24px;
   margin-top: 0;
 }
@@ -873,7 +873,7 @@ a:hover { text-decoration: underline; }
 
 /* =================== FOOTER =================== */
 .site-footer {
-  background: #0f172a;
+  background: #0C0C0C;
   color: rgba(255,255,255,0.7);
   padding: 56px 24px 24px;
 }
@@ -887,7 +887,7 @@ a:hover { text-decoration: underline; }
 }
 @media(max-width: 768px) { .footer-inner { grid-template-columns: 1fr; } }
 
-.footer-brand .logo-icon { color: #a5b4fc; }
+.footer-brand .logo-icon { color: #F2613F; }
 .footer-brand .logo-text { color: white; }
 .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 12px; line-height: 1.5; }
 
